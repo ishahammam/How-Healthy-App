@@ -9,6 +9,9 @@ public class Health {
     private double femaleBMR;
     private int activityMultiplier;
 
+    private double maleTDEE;
+    private double femaleTDEE;
+
     public String getName() {
         return name;
     }
@@ -67,15 +70,65 @@ public class Health {
     }
 
     /* -------------------- BMR Calculation -------------------- */
-    public double calculateMaleBMR() {
+    public double maleBMR() {
         maleBMR = 66 + (13.7 * poundToKG(weight)) + (5 * inchToCM(height)) - (6.8 * age);
         return maleBMR;
     }
 
-    public double calculateFemaleBMR() {
+    public double femaleBMR() {
         femaleBMR = 655 + (9.6 * poundToKG(weight)) + (1.8 * inchToCM(height)) - (4.7 * age);
         return femaleBMR;
     }
+
+    /* -------------------- TDEE Calculation -------------------- */
+    public double maleTDEE(int activityMultiplier) {
+        switch (activityMultiplier) {
+            case 1:
+                maleTDEE = maleBMR * 1.2;
+                break;
+            case 2:
+                maleTDEE = maleBMR * 1.375;
+                break;
+            case 3:
+                maleTDEE = maleBMR * 1.55;
+                break;
+            case 4:
+                maleTDEE = maleBMR * 1.725;
+                break;
+            case 5:
+                maleTDEE = maleBMR * 1.9;
+                break;
+            default:
+                maleTDEE = maleBMR * 1.2;
+                break;
+        }
+        return maleTDEE;
+    }
+
+    public double femaleTDEE(int activityMultiplier) {
+        switch (activityMultiplier) {
+            case 1:
+                femaleTDEE = femaleBMR * 1.2;
+                break;
+            case 2:
+                femaleTDEE = femaleBMR * 1.375;
+                break;
+            case 3:
+                femaleTDEE = femaleBMR * 1.55;
+                break;
+            case 4:
+                femaleTDEE = femaleBMR * 1.725;
+                break;
+            case 5:
+                femaleTDEE = femaleBMR * 1.9;
+                break;
+            default:
+                femaleTDEE = femaleBMR * 1.2;
+                break;
+        }
+        return femaleTDEE;
+    }
+
 
     /* -------------------- BMI Calculation -------------------- */
     public double calculateBMI() {

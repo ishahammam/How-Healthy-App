@@ -45,7 +45,22 @@ public class HowHealthy {
         System.out.println("Weight: " + user.getWeight() + " pounds");
         System.out.println("Height: " + user.getHeight() + " inches");
         System.out.println("Age: " + user.getAge() + " years");
-        System.out.println("BMR: " + user.calculateFemaleBMR());
-        System.out.println("Activity level: " + user.getActivityMultiplier());
+
+        String sexType = user.getSex();
+
+        if (sexType.startsWith("M") || sexType.startsWith("m")) {
+            System.out.println("These are for a male");
+            System.out.println("BMR is " + user.maleBMR());
+            System.out.println("TDEE is " + user.maleTDEE(activityMultiplier));
+        }
+
+        if (sexType.startsWith("F") || sexType.startsWith("f")) {
+            System.out.println("These are for a female");
+            System.out.println("BMR is " + user.femaleBMR());
+            System.out.println("TDEE is " + user.femaleTDEE(activityMultiplier));
+        }
+
+        System.out.println("BMI is ");
+        System.out.println("Your BMI classifies you as ");
     }
 }
