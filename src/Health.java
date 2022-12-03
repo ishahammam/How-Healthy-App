@@ -6,7 +6,7 @@ public class Health {
     private String sex;
     private double BMI;
     private double BMR;
-    private int classification;
+    private int activityMultiplier;
 
     public String getName() {
         return name;
@@ -64,12 +64,12 @@ public class Health {
         this.BMR = BMR;
     }
 
-    public int getClassification() {
-        return classification;
+    public int getActivityMultiplier() {
+        return activityMultiplier;
     }
 
-    public void setClassification(int classification) {
-        this.classification = classification;
+    public void setActivityMultiplier(int activityMultiplier) {
+        this.activityMultiplier = activityMultiplier;
     }
 
     @Override

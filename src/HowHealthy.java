@@ -26,7 +26,7 @@ public class HowHealthy {
         int age = scanner.nextInt();
         user.setAge(age);
 
-        String classificationOptions = """
+        String activityMultiplierOptions = """
                 Using these categories:
                     1 -
                     2 -
@@ -34,10 +34,10 @@ public class HowHealthy {
                     4 -
                     5 -
                 """;
-        System.out.println(classificationOptions);
+        System.out.println(activityMultiplierOptions);
         System.out.print("How active are you? ");
-        int classification = scanner.nextInt();
-        user.setClassification(classification);
+        int activityMultiplier = scanner.nextInt();
+        user.setActivityMultiplier(activityMultiplier);
 
         // Displaying Data
         System.out.println("\n-------------------------");
@@ -46,6 +46,6 @@ public class HowHealthy {
         System.out.println("Height: " + user.getHeight() + " inches");
         System.out.println("Age: " + user.getAge() + " years");
         System.out.println("BMR + BMI");
-        System.out.println("Activity level: " + user.getClassification());
+        System.out.println("Activity level: " + user.getActivityMultiplier());
     }
 }
