@@ -28,11 +28,11 @@ public class HowHealthy {
 
         String activityMultiplierOptions = """
                 Using these categories:
-                    1 -
-                    2 -
-                    3 -
-                    4 -
-                    5 -
+                    1 - Sedentary (little or no exercise, desk job)
+                    2 - Lightly active (light exercise/sports 1-3 days/wk)
+                    3 - Moderately active (moderate exercise/sports 3-5 days/wk)
+                    4 - Very active (hard exercise/sports 6-7 days/wk)
+                    5 - Extra active (hard daily exercise/sports & physical job or 2X day training, i.e marathon, contest etc.
                 """;
         System.out.println(activityMultiplierOptions);
         System.out.print("How active are you? ");
@@ -45,7 +45,7 @@ public class HowHealthy {
         System.out.println("Weight: " + user.getWeight() + " pounds");
         System.out.println("Height: " + user.getHeight() + " inches");
         System.out.println("Age: " + user.getAge() + " years");
-        System.out.println("BMR + BMI");
+        System.out.println("BMR: " + user.calculateFemaleBMR());
         System.out.println("Activity level: " + user.getActivityMultiplier());
     }
 }

@@ -5,7 +5,8 @@ public class Health {
     private int age;
     private String sex;
     private double BMI;
-    private double BMR;
+    private double maleBMR;
+    private double femaleBMR;
     private int activityMultiplier;
 
     public String getName() {
@@ -48,22 +49,6 @@ public class Health {
         this.sex = sex;
     }
 
-    public double getBMI() {
-        return BMI;
-    }
-
-    public void setBMI(double BMI) {
-        this.BMI = BMI;
-    }
-
-    public double getBMR() {
-        return BMR;
-    }
-
-    public void setBMR(double BMR) {
-        this.BMR = BMR;
-    }
-
     public int getActivityMultiplier() {
         return activityMultiplier;
     }
@@ -72,8 +57,28 @@ public class Health {
         this.activityMultiplier = activityMultiplier;
     }
 
-    @Override
-    public String toString() {
-        return "From Health Class | " + name;
+    /* -------------------- Unit Conversion -------------------- */
+    public double poundToKG(double value) {
+        return value * 0.453592;
+    }
+
+    public double inchToCM(double value) {
+        return value * 2.54;
+    }
+
+    /* -------------------- BMR Calculation -------------------- */
+    public double calculateMaleBMR() {
+        maleBMR = 66 + (13.7 * poundToKG(weight)) + (5 * inchToCM(height)) - (6.8 * age);
+        return maleBMR;
+    }
+
+    public double calculateFemaleBMR() {
+        femaleBMR = 655 + (9.6 * poundToKG(weight)) + (1.8 * inchToCM(height)) - (4.7 * age);
+        return femaleBMR;
+    }
+
+    /* -------------------- BMI Calculation -------------------- */
+    public double calculateBMI() {
+        return BMI;
     }
 }
