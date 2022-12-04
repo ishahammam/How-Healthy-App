@@ -4,13 +4,15 @@ public class Health {
     private double height;
     private int age;
     private String sex;
-    private double BMI;
     private double maleBMR;
     private double femaleBMR;
     private int activityMultiplier;
-
     private double maleTDEE;
     private double femaleTDEE;
+    private double BMI;
+    private String BMICategory;
+
+    /* -------------------- Getters & Setters -------------------- */
 
     public String getName() {
         return name;
@@ -129,9 +131,25 @@ public class Health {
         return femaleTDEE;
     }
 
-
     /* -------------------- BMI Calculation -------------------- */
     public double calculateBMI() {
+        BMI = (weight / Math.pow(height, 2)) * 703;
         return BMI;
+    }
+
+    public String getBMICategory() {
+        if (BMI < 18.5) {
+            BMICategory = "underweight";
+        }
+        if (BMI >= 18.5 && BMI <= 24.9) {
+            BMICategory = "normal weight";
+        }
+        if (BMI >= 25 && BMI <= 29.9) {
+            BMICategory = "overweight";
+        }
+        if (BMI >= 30) {
+            BMICategory = "obese";
+        }
+        return BMICategory;
     }
 }

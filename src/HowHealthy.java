@@ -40,7 +40,7 @@ public class HowHealthy {
         user.setActivityMultiplier(activityMultiplier);
 
         // Displaying Data
-        System.out.println("\n-------------------------");
+        System.out.println("\n--------------------------------------------");
         System.out.println(user.getName() + "'s information");
         System.out.println("Weight: " + user.getWeight() + " pounds");
         System.out.println("Height: " + user.getHeight() + " inches");
@@ -60,7 +60,8 @@ public class HowHealthy {
             System.out.println("TDEE is " + user.femaleTDEE(activityMultiplier));
         }
 
-        System.out.println("BMI is ");
-        System.out.println("Your BMI classifies you as ");
+        System.out.println("BMI is " + user.calculateBMI());
+        System.out.println("Your BMI classifies you as " + user.getBMICategory());
+        System.out.println("--------------------------------------------");
     }
 }
