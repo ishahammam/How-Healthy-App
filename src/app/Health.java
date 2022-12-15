@@ -1,3 +1,5 @@
+package app;
+
 public class Health {
     private String name;
     private double weight;

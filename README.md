@@ -1,4 +1,4 @@
-# Assignment 1 - HowHealthy App
+# Assignment 1 - app.HowHealthy App
 
 Output
 
