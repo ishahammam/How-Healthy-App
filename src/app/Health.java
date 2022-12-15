@@ -1,68 +1,10 @@
 package app;
 
 public class Health {
-    private String name;
-    private double weight;
-    private double height;
-    private int age;
-    private String sex;
     private double maleBMR;
     private double femaleBMR;
-    private int activityMultiplier;
-    private double maleTDEE;
-    private double femaleTDEE;
     private double BMI;
     private String BMICategory;
-
-    /* -------------------- Getters & Setters -------------------- */
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public int getActivityMultiplier() {
-        return activityMultiplier;
-    }
-
-    public void setActivityMultiplier(int activityMultiplier) {
-        this.activityMultiplier = activityMultiplier;
-    }
 
     /* -------------------- Unit Conversion -------------------- */
     public double poundToKG(double value) {
@@ -74,18 +16,19 @@ public class Health {
     }
 
     /* -------------------- BMR Calculation -------------------- */
-    public double maleBMR() {
+    public double maleBMR(double weight, double height, double age) {
         maleBMR = 66 + (13.7 * poundToKG(weight)) + (5 * inchToCM(height)) - (6.8 * age);
         return maleBMR;
     }
 
-    public double femaleBMR() {
+    public double femaleBMR(double weight, double height, double age) {
         femaleBMR = 655 + (9.6 * poundToKG(weight)) + (1.8 * inchToCM(height)) - (4.7 * age);
         return femaleBMR;
     }
 
     /* -------------------- TDEE Calculation -------------------- */
     public double maleTDEE(int activityMultiplier) {
+        double maleTDEE;
         switch (activityMultiplier) {
             case 1:
                 maleTDEE = maleBMR * 1.2;
@@ -110,6 +53,7 @@ public class Health {
     }
 
     public double femaleTDEE(int activityMultiplier) {
+        double femaleTDEE;
         switch (activityMultiplier) {
             case 1:
                 femaleTDEE = femaleBMR * 1.2;
@@ -134,7 +78,7 @@ public class Health {
     }
 
     /* -------------------- BMI Calculation -------------------- */
-    public double calculateBMI() {
+    public double calculateBMI(double weight, double height) {
         BMI = (weight / Math.pow(height, 2)) * 703;
         return BMI;
     }

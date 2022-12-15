@@ -10,23 +10,18 @@ public class HowHealthy {
         // Collecting Data
         System.out.print("Person's Name: ");
         String name = scanner.nextLine();
-        user.setName(name);
 
-        System.out.print(user.getName() + ", are you male or female (M/F)? ");
-        String sex = scanner.nextLine();
-        user.setSex(sex);
+        System.out.print(name + ", are you male or female (M/F)? ");
+        char sex = scanner.nextLine().charAt(0);
 
-        System.out.print(user.getName() + "'s weight (pounds): ");
+        System.out.print(name + "'s weight (pounds): ");
         double weight = scanner.nextDouble();
-        user.setWeight(weight);
 
-        System.out.print(user.getName() + "'s height (inches): ");
+        System.out.print(name + "'s height (inches): ");
         double height = scanner.nextDouble();
-        user.setHeight(height);
 
-        System.out.print(user.getName() + "'s age (years): ");
+        System.out.print(name + "'s age (years): ");
         int age = scanner.nextInt();
-        user.setAge(age);
 
         String activityMultiplierOptions = """
                 Using these categories:
@@ -39,30 +34,27 @@ public class HowHealthy {
         System.out.println(activityMultiplierOptions);
         System.out.print("How active are you? ");
         int activityMultiplier = scanner.nextInt();
-        user.setActivityMultiplier(activityMultiplier);
 
         // Displaying Data
         System.out.println("\n--------------------------------------------");
-        System.out.println(user.getName() + "'s information");
-        System.out.println("Weight: " + user.getWeight() + " pounds");
-        System.out.println("Height: " + user.getHeight() + " inches");
-        System.out.println("Age: " + user.getAge() + " years");
+        System.out.println(name + "'s information");
+        System.out.println("Weight: " + weight + " pounds");
+        System.out.println("Height: " + height + " inches");
+        System.out.println("Age: " + age + " years");
 
-        String sexType = user.getSex();
-
-        if (sexType.startsWith("M") || sexType.startsWith("m")) {
+        if (sex == 'M' || sex == 'm') {
             System.out.println("These are for a male");
-            System.out.println("BMR is " + user.maleBMR());
+            System.out.println("BMR is " + user.maleBMR(weight, height, age));
             System.out.println("TDEE is " + user.maleTDEE(activityMultiplier));
         }
 
-        if (sexType.startsWith("F") || sexType.startsWith("f")) {
+        if (sex == 'F' || sex == 'f') {
             System.out.println("These are for a female");
-            System.out.println("BMR is " + user.femaleBMR());
+            System.out.println("BMR is " + user.femaleBMR(weight, height, age));
             System.out.println("TDEE is " + user.femaleTDEE(activityMultiplier));
         }
 
-        System.out.println("BMI is " + user.calculateBMI());
+        System.out.println("BMI is " + user.calculateBMI(weight, height));
         System.out.println("Your BMI classifies you as " + user.getBMICategory());
         System.out.println("--------------------------------------------");
     }
